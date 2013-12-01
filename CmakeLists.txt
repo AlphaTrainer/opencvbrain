@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 2.8)
+PROJECT(opencvbrain)
+
+# Requires OpenCV
+FIND_PACKAGE( OpenCV REQUIRED )
+
+# debug or release:
+# NIECETOHAVE: make it into a cli option setting as well ?
+set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Release)
+
+SET(SRC
+  testutil.cpp
+  signalprocessingutil.cpp
+  printutil.cpp
+  main_brain.cpp
+  opencvbrainprocessor.cpp
+)
+ADD_EXECUTABLE( ${PROJECT_NAME} ${SRC} ) 
+TARGET_LINK_LIBRARIES( ${PROJECT_NAME} ${OpenCV_LIBS} )
+
+
+
